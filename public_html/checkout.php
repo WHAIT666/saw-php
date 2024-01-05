@@ -1,20 +1,18 @@
 <?php
-// Database configuration
-define('DB_SERVER', 'localhost');
-define('DB_USERNAME', 'root');
-define('DB_PASSWORD', '12345');
-define('DB_NAME', 'SAW');
+session_start();
 
-// Connect to the database
-$conn = mysqli_connect(DB_SERVER, DB_USERNAME, DB_PASSWORD, DB_NAME);
+if( !empty($_SESSION['cart']) &&  isset($_POST['checkout']) ){
 
-// Check the connection
-if($conn === false){
-    die("ERROR: Could not connect. " . mysqli_connect_error());
+  //let user in
+
+
+  //send user to home page
+}else{
+  
+  //send user to login page ( index é placehodler até fazer a pagina de login)
+  header("Location: index.php");
+
 }
-
-// Close the database connection
-mysqli_close($conn);
 ?>
 
 <!doctype html>
@@ -77,7 +75,7 @@ mysqli_close($conn);
       <hr class="mx-auto">
 </div>
 <div class="mx-auto container">
-  <form id="checkout-form">
+  <form id="checkout-form" method="POST" action="place_order.php">
     <div class="form-group checkout-small-element">
       <label>Name</label>
       <input type="text" class="form-control" id="checkout-name" name="name" placeholder="Name" required/>
@@ -99,7 +97,8 @@ mysqli_close($conn);
   <input type="text" class="form-control" id="checkout-address" name="address" placeholder="Address" required/>
 </div>
 <div class="form-group checkout-btn-container">
-  <input type="submit" class="btn" id="checkout-btn" value="Checkout"/>
+  <p>Total amount: € <?php echo $_SESSION['total']; ?></p>
+  <input type="submit" class="btn" id="checkout-btn" name="place_order" value="Place Order"/>
 </div>
 </form>
 </div>
