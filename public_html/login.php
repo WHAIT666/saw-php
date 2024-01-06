@@ -9,7 +9,7 @@ if(isset($_SESSION['logged_in'])){
     exit;
 }
 
-if(isset($_POST['login_btn'])) {
+if(isset($_POST['login_btnn'])) {
     
   
   $email = mysqli_real_escape_string($conn, $_POST['email']);
