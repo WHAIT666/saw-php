@@ -45,12 +45,12 @@ if(isset($_POST['place_order'])){
         $product_quantity = $product['product_quantity'];
 
         //4. store each single item in order_items database
-        $stmt1 = $conn->prepare("INSERT INTO order_item (order_id,product_id,product_name,product_image,user_id,order_date)
-        VALUES (?, ?, ?, ?, ?, ?) ");
+        $stmt1 = $conn->prepare("INSERT INTO order_items (order_id, product_id, product_name, product_image, product_price, product_quantity, user_id, order_date)
+VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
 
-        $stmt1->bind_param('iissis',$order_id,$product_id,$product_name,$product_image,$product_price,$product_quantity,$user_id,$order_date);
+$stmt1->bind_param('iisssisi', $order_id, $product_id, $product_name, $product_image, $product_price, $product_quantity, $user_id, $order_date);
 
-        $stmt1->execute();
+$stmt1->execute();
 
 
             //5. remove everything from cart

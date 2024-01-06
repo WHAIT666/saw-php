@@ -221,6 +221,7 @@ function calculateTotalCart(){
                     <input type="hidden" name="product_id" value="<?php echo $value['product_id']; ?>" />
                     <input type="number" name="product_quantity" value="<?php echo $value['product_quantity']; ?>" />
                     <input type="submit" class="edit-btn" value="edit" name="edit_quantity" />
+        </form>
         </td>
 
         <td>
@@ -249,7 +250,7 @@ function calculateTotalCart(){
     <div class="checkout-container">
         <form method="POST" action="checkout.php">
         <input type="submit" class="btn checkout-btn" value="Checkout" name="checkout">
-    </form>
+        </form>
     </div>
 
 </section>
