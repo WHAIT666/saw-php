@@ -137,7 +137,7 @@ $stmt->bind_param('sss', $name, $email, $hashedPassword);
     <!--Register-->
     <section class="my-5 py-5">
       <div class="container text-center mt-3 pt-5">
-      <h2 class="form-weight-bold">Login</h2>
+      <h2 class="form-weight-bold">Register</h2>
       <hr class="mx-auto">
 </div>
 <div class="mx-auto container">
