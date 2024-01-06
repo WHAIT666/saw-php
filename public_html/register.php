@@ -1,20 +1,85 @@
 <?php
-// Database configuration
-define('DB_SERVER', 'localhost');
-define('DB_USERNAME', 'root');
-define('DB_PASSWORD', '12345');
-define('DB_NAME', 'SAW');
 
-// Connect to the database
-$conn = mysqli_connect(DB_SERVER, DB_USERNAME, DB_PASSWORD, DB_NAME);
+session_start();
+include('server/connection.php');
 
-// Check the connection
-if($conn === false){
-    die("ERROR: Could not connect. " . mysqli_connect_error());
+
+//if user has already registered, then take user to account page
+if(isset($_SESSION['logged_in'])){
+    header('location: account.php');
+  exit;
 }
 
-// Close the database connection
-mysqli_close($conn);
+if(isset($_POST['register'])){
+
+
+  $name = mysqli_real_escape_string($conn, $_POST['name']);
+  $email = mysqli_real_escape_string($conn, $_POST['email']);
+  $password = mysqli_real_escape_string($conn, $_POST['password']);
+  $confirmPassword = mysqli_real_escape_string($conn, $_POST['confirmPassword']);
+
+
+
+  //if password dont match
+  if($password !== $confirmPassword){
+    header('location: register.php?error=Passwords do not match');
+  
+
+
+  //if password is less than 6 characters
+}else if(strlen($password) < 6) {
+    header('location: register.php?error=Password must be at least 6 characters long');
+  
+
+
+//if there is no error
+}else{
+    
+    //check whether there is a user with this email or not
+    $stmt1 = $conn->prepare("SELECT count(*) FROM users WHERE user_email=?");
+    $stmt1->bind_param('s',$email);
+    $stmt1->execute();
+    $stmt1->bind_result($num_rows);
+    $stmt1->store_result();
+    $stmt1->fetch();
+   
+
+    // if there is a user already registered wit hthis email
+    if($num_rows != 0){
+     header('location: register.php?error=Email already exists');
+    
+    
+    // if no user registered with this email before 
+    }else{
+   
+   
+    // Hash the password before storing it in the database
+$hashedPassword = password_hash($password, PASSWORD_DEFAULT);
+
+// Create a new user
+$stmt = $conn->prepare("INSERT INTO users (user_name, user_email, user_password) 
+VALUES (?, ?, ?)");
+$stmt->bind_param('sss', $name, $email, $hashedPassword);
+   
+
+     //if account was created sucessfully
+     if($stmt->execute()){
+      $_SESSION['user_email'] = $email;
+      $_SESSION['user_name'] = $name;
+      $_SESSION['logged_in'] = true;
+      header('location: account.php?register=You registered successfully');
+
+      // account could not be created
+    }else{
+
+      header('location: register.php?error=Could not create an account at the moment');
+    }
+}
+}
+
+}
+
+
 ?>
 
 <!doctype html>
@@ -36,8 +101,8 @@ mysqli_close($conn);
   </head>
   <body>
 
-    <!-- Navigation bar -->
-    <nav class="navbar navbar-expand-lg navbar-light bg-white py-3 fixed-top">
+     <!-- Navigation bar -->
+     <nav class="navbar navbar-expand-lg navbar-light bg-white py-3 fixed-top">
       <div class="container">
         <img class="logo" src="assets/imgs/logo.jpg"/>
         <h2 class="brand">0range</h2>
@@ -56,12 +121,12 @@ mysqli_close($conn);
               <a class="nav-link" href="#">Blog</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">Contact Us</a>
+              <a class="nav-link" href="contact.php">Contact Us</a>
             </li>
             
             <li class="nav-item">
-              <i class="fas fa-shopping-cart"></i>
-              <i class="fas fa-user"></i>
+              <a href="cart.php"><i class ="fas fa-shopping-cart"></i></a>
+              <a href="account.php"><i class="fas fa-user"></i></a>
             </li>
         </ul>
         </div>
@@ -76,7 +141,8 @@ mysqli_close($conn);
       <hr class="mx-auto">
 </div>
 <div class="mx-auto container">
-  <form id="register-form">
+  <form id="register-form" method="POST" action="register.php">
+    <p style="color: red;"><?php if(isset($_GET['error'])) { echo $_GET['error']; }?></p>
     <div class="form-group">
       <label>Name</label>
       <input type="text" class="form-control" id="login-name" name="name" placeholder="Name" required/>
@@ -94,10 +160,10 @@ mysqli_close($conn);
   <input type="password" class="form-control" id="register-confirm--password" name="confirmPassword" placeholder="Confirm Password" required/>
 </div>
 <div class="form-group">
-  <input type="submit" class="btn" id="register-btn" value="Register"/>
+  <input type="submit" class="btn" id="register-btn" name="register" value="Register"/>
 </div>
 <div class="form-group">
-  <a id="login-url" class="btn">Do you have an account? Login</a>
+  <a id="login-url" href="login.php" class="btn">Do you have an account? Login</a>
 </div>
 </form>
 </div>

@@ -35,8 +35,8 @@ mysqli_close($conn);
     <link rel="stylesheet" href="assets/css/style.css">
   </head>
   <body>
-    <!-- Navigation bar -->
-    <nav class="navbar navbar-expand-lg navbar-light bg-white py-3 fixed-top">
+   <!-- Navigation bar -->
+   <nav class="navbar navbar-expand-lg navbar-light bg-white py-3 fixed-top">
       <div class="container">
         <img class="logo" src="assets/imgs/logo.jpg"/>
         <h2 class="brand">0range</h2>
@@ -55,12 +55,12 @@ mysqli_close($conn);
               <a class="nav-link" href="#">Blog</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">Contact Us</a>
+              <a class="nav-link" href="contact.php">Contact Us</a>
             </li>
             
             <li class="nav-item">
-              <i class="fas fa-shopping-cart"></i>
-              <i class="fas fa-user"></i>
+              <a href="cart.php"><i class ="fas fa-shopping-cart"></i></a>
+              <a href="account.php"><i class="fas fa-user"></i></a>
             </li>
         </ul>
         </div>

@@ -47,12 +47,12 @@ session_start();
               <a class="nav-link" href="#">Blog</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">Contact Us</a>
+              <a class="nav-link" href="contact.php">Contact Us</a>
             </li>
             
             <li class="nav-item">
-              <i class="fas fa-shopping-cart"></i>
-              <i class="fas fa-user"></i>
+              <a href="cart.php"><i class ="fas fa-shopping-cart"></i></a>
+              <a href="account.php"><i class="fas fa-user"></i></a>
             </li>
         </ul>
         </div>
@@ -60,7 +60,7 @@ session_start();
     </nav>
 
 
-     <!--Register-->
+     <!--Checkout-->
      <section class="my-5 py-5">
       <div class="container text-center mt-3 pt-5">
       <h2 class="form-weight-bold">Check Out</h2>

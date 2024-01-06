@@ -28,26 +28,41 @@ if(isset($_POST['place_order'])){
 
     $stmt->execute();
 
+        //2. issue new order and store order info in database
     $order_id = $stmt->insert_id;
 
     echo $order_id;
 
 
-    //2. get products from cart (from session)
+    //3. get products from cart (from session)
+    foreach($_SESSION['cart'] as $key => $value){
+
+        $product = $_SESSION['cart'][$key];
+        $product_id = $product['product_id'];
+        $product_name = $product['product_name'];
+        $product_image = $product['product_image'];
+        $product_price = $product['product_price'];
+        $product_quantity = $product['product_quantity'];
+
+        //4. store each single item in order_items database
+        $stmt1 = $conn->prepare("INSERT INTO order_item (order_id,product_id,product_name,product_image,user_id,order_date)
+        VALUES (?, ?, ?, ?, ?, ?) ");
+
+        $stmt1->bind_param('iissis',$order_id,$product_id,$product_name,$product_image,$product_price,$product_quantity,$user_id,$order_date);
+
+        $stmt1->execute();
 
 
-    //3. store order info in database
+            //5. remove everything from cart
+            //unset($_SESSION['cart']);
+    
 
 
-    //4. store each single item in order_items database
-
-
-
-
-    //5. remove everything from cart
+}
 
 
     //6. inform user wether everything is fine or thre is a problem
+    header('location: ../payment.php?order_status=order placed_successfully ');
 
 
 
