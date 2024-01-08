@@ -159,3 +159,11 @@
 [Sat Jan 06 18:42:50.310962 2024] [ssl:warn] [pid 9964:tid 408] AH01909: saw:443:0 server certificate does NOT include an ID which matches the server name
 [Sat Jan 06 18:42:50.811417 2024] [ssl:warn] [pid 17112:tid 408] AH01909: saw:443:0 server certificate does NOT include an ID which matches the server name
 [Sat Jan 06 18:42:50.845447 2024] [ssl:warn] [pid 17112:tid 408] AH01909: saw:443:0 server certificate does NOT include an ID which matches the server name
+[Mon Jan 08 14:26:54.794649 2024] [ssl:warn] [pid 21612:tid 400] AH01909: saw:443:0 server certificate does NOT include an ID which matches the server name
+[Mon Jan 08 14:26:54.834685 2024] [ssl:warn] [pid 21612:tid 400] AH01909: saw:443:0 server certificate does NOT include an ID which matches the server name
+[Mon Jan 08 14:26:55.542191 2024] [ssl:warn] [pid 25828:tid 444] AH01909: saw:443:0 server certificate does NOT include an ID which matches the server name
+[Mon Jan 08 14:26:55.576222 2024] [ssl:warn] [pid 25828:tid 444] AH01909: saw:443:0 server certificate does NOT include an ID which matches the server name
+[Mon Jan 08 18:20:18.981653 2024] [ssl:warn] [pid 26492:tid 408] AH01909: saw:443:0 server certificate does NOT include an ID which matches the server name
+[Mon Jan 08 18:20:19.024692 2024] [ssl:warn] [pid 26492:tid 408] AH01909: saw:443:0 server certificate does NOT include an ID which matches the server name
+[Mon Jan 08 18:20:19.569186 2024] [ssl:warn] [pid 21204:tid 408] AH01909: saw:443:0 server certificate does NOT include an ID which matches the server name
+[Mon Jan 08 18:20:19.606220 2024] [ssl:warn] [pid 21204:tid 408] AH01909: saw:443:0 server certificate does NOT include an ID which matches the server name

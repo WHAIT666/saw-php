@@ -64,10 +64,12 @@ $stmt->bind_param('sss', $name, $email, $hashedPassword);
 
      //if account was created sucessfully
      if($stmt->execute()){
+      $user_id = $stmt->insert_id;
+      $_SESSION['user_id'] = $user_id;
       $_SESSION['user_email'] = $email;
       $_SESSION['user_name'] = $name;
       $_SESSION['logged_in'] = true;
-      header('location: account.php?register=You registered successfully');
+      header('location: account.php?register_success=You registered successfully');
 
       // account could not be created
     }else{
