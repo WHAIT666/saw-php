@@ -167,3 +167,30 @@
 [Mon Jan 08 18:20:19.024692 2024] [ssl:warn] [pid 26492:tid 408] AH01909: saw:443:0 server certificate does NOT include an ID which matches the server name
 [Mon Jan 08 18:20:19.569186 2024] [ssl:warn] [pid 21204:tid 408] AH01909: saw:443:0 server certificate does NOT include an ID which matches the server name
 [Mon Jan 08 18:20:19.606220 2024] [ssl:warn] [pid 21204:tid 408] AH01909: saw:443:0 server certificate does NOT include an ID which matches the server name
+[Mon Jan 08 18:22:18.207270 2024] [php:error] [pid 21204:tid 1888] [client 127.0.0.1:62929] script 'C:/xampp/htdocs/saw/public_html/order_details.php' not found or unable to stat
+[Mon Jan 08 18:45:34.845433 2024] [ssl:warn] [pid 5712:tid 404] AH01909: saw:443:0 server certificate does NOT include an ID which matches the server name
+[Mon Jan 08 18:45:34.887472 2024] [ssl:warn] [pid 5712:tid 404] AH01909: saw:443:0 server certificate does NOT include an ID which matches the server name
+[Mon Jan 08 18:45:35.195752 2024] [ssl:warn] [pid 22804:tid 404] AH01909: saw:443:0 server certificate does NOT include an ID which matches the server name
+[Mon Jan 08 18:45:35.231785 2024] [ssl:warn] [pid 22804:tid 404] AH01909: saw:443:0 server certificate does NOT include an ID which matches the server name
+[Mon Jan 08 19:05:09.560454 2024] [php:error] [pid 22804:tid 1880] [client 127.0.0.1:49335] script 'C:/xampp/htdocs/saw/public_html/sexo.php' not found or unable to stat
+[Mon Jan 08 19:05:11.466750 2024] [php:error] [pid 22804:tid 1880] [client 127.0.0.1:49335] script 'C:/xampp/htdocs/saw/public_html/sexo.php' not found or unable to stat
+[Mon Jan 08 19:05:11.577849 2024] [php:error] [pid 22804:tid 1880] [client 127.0.0.1:49335] script 'C:/xampp/htdocs/saw/public_html/sexo.php' not found or unable to stat
+[Mon Jan 08 19:05:11.708249 2024] [php:error] [pid 22804:tid 1880] [client 127.0.0.1:49335] script 'C:/xampp/htdocs/saw/public_html/sexo.php' not found or unable to stat
+[Mon Jan 08 19:05:11.856383 2024] [php:error] [pid 22804:tid 1880] [client 127.0.0.1:49335] script 'C:/xampp/htdocs/saw/public_html/sexo.php' not found or unable to stat
+[Mon Jan 08 19:05:11.955475 2024] [php:error] [pid 22804:tid 1880] [client 127.0.0.1:49335] script 'C:/xampp/htdocs/saw/public_html/sexo.php' not found or unable to stat
+[Mon Jan 08 19:05:12.097933 2024] [php:error] [pid 22804:tid 1880] [client 127.0.0.1:49335] script 'C:/xampp/htdocs/saw/public_html/sexo.php' not found or unable to stat
+[Mon Jan 08 19:05:12.345158 2024] [php:error] [pid 22804:tid 1880] [client 127.0.0.1:49335] script 'C:/xampp/htdocs/saw/public_html/sexo.php' not found or unable to stat
+[Mon Jan 08 19:05:19.246272 2024] [php:error] [pid 22804:tid 1880] [client 127.0.0.1:49358] script 'C:/xampp/htdocs/saw/public_html/order-details.php' not found or unable to stat
+[Mon Jan 08 19:05:22.603479 2024] [php:error] [pid 22804:tid 1880] [client 127.0.0.1:49358] script 'C:/xampp/htdocs/saw/public_html/order_details.php' not found or unable to stat
+[Tue Jan 09 02:22:25.249671 2024] [ssl:warn] [pid 22156:tid 416] AH01909: saw:443:0 server certificate does NOT include an ID which matches the server name
+[Tue Jan 09 02:22:25.288707 2024] [ssl:warn] [pid 22156:tid 416] AH01909: saw:443:0 server certificate does NOT include an ID which matches the server name
+[Tue Jan 09 02:22:25.793165 2024] [ssl:warn] [pid 26764:tid 416] AH01909: saw:443:0 server certificate does NOT include an ID which matches the server name
+[Tue Jan 09 02:22:25.828197 2024] [ssl:warn] [pid 26764:tid 416] AH01909: saw:443:0 server certificate does NOT include an ID which matches the server name
+[Tue Jan 09 02:27:53.798293 2024] [ssl:warn] [pid 18948:tid 400] AH01909: saw:443:0 server certificate does NOT include an ID which matches the server name
+[Tue Jan 09 02:27:53.839366 2024] [ssl:warn] [pid 18948:tid 400] AH01909: saw:443:0 server certificate does NOT include an ID which matches the server name
+[Tue Jan 09 02:27:54.124625 2024] [ssl:warn] [pid 8344:tid 408] AH01909: saw:443:0 server certificate does NOT include an ID which matches the server name
+[Tue Jan 09 02:27:54.158656 2024] [ssl:warn] [pid 8344:tid 408] AH01909: saw:443:0 server certificate does NOT include an ID which matches the server name
+[Tue Jan 09 17:12:26.916343 2024] [ssl:warn] [pid 2788:tid 400] AH01909: saw:443:0 server certificate does NOT include an ID which matches the server name
+[Tue Jan 09 17:12:26.957380 2024] [ssl:warn] [pid 2788:tid 400] AH01909: saw:443:0 server certificate does NOT include an ID which matches the server name
+[Tue Jan 09 17:12:27.511884 2024] [ssl:warn] [pid 2196:tid 400] AH01909: saw:443:0 server certificate does NOT include an ID which matches the server name
+[Tue Jan 09 17:12:27.547916 2024] [ssl:warn] [pid 2196:tid 400] AH01909: saw:443:0 server certificate does NOT include an ID which matches the server name

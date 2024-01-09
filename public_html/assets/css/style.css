@@ -193,6 +193,7 @@ button:hover{
 
 .product img{
     transition: 0.3s all;
+    
 }
 
 .product:hover img{
@@ -203,7 +204,14 @@ button:hover{
 background-color: #000000;
 transform: translateY(50px);
 opacity: 0;
-transition: 0.3s all
+transition: 0.3s all;
+color: #fff;
+}
+
+.shop-buy-btn{
+    background-color: #ffd000;
+    opacity: 1;
+    color: #fff;
 }
 
 .product:hover .buy-btn{
@@ -294,7 +302,7 @@ footer .copyright a{
 
 footer .copyright a:hover{
     color: #fff;
-    background-color: #fb774b;
+    background-color: #ffd000;
 }
 
 footer p{
@@ -312,7 +320,7 @@ footer .copyright img{
 }
 
 .navbar .brand{
-    color: coral;
+    color: #ffd000;
     margin: 3px 5px;
     font-size: 1.5rem;
 }
@@ -343,6 +351,7 @@ footer .copyright img{
     background-color: #ffd000;
     opacity: 1;
     transition: 0.4s all;
+    color:#fff
 }
 
 .single-product .buy-btn:hover{

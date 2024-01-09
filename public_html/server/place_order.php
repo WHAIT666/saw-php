@@ -5,11 +5,24 @@ session_start();
 include('connection.php');
 
 
-if(isset($_POST['place_order'])){
+// if user is not logged in
+if(!isset($_SESSION['logged_in'])){
+    header('location: ../checkout.php?message=Please login/register to place an order');
+    exit;
+
+
+    //if user is logged in
+}else{
+
+
+if(isset($_POST['place_order']) ){
 
 
 
-    //1. get tuser inf oand store it in database
+    
+
+
+    //1. get user inf oand store it in database
 
     $name = $_POST['name'];
     $email = $_POST['email'];
@@ -26,7 +39,12 @@ if(isset($_POST['place_order'])){
 
     $stmt->bind_param('isiisss',$order_cost,$order_status,$user_id,$phone,$city,$address,$order_date);
 
-    $stmt->execute();
+    $stmt_Status = $stmt->execute();
+
+    if(!$stmt_Status){
+        header('location: index.php');
+        exit;
+    }
 
         //2. issue new order and store order info in database
     $order_id = $stmt->insert_id;
@@ -71,7 +89,7 @@ $stmt1->execute();
 
 }
 
-
+}
 
 
 ?>
