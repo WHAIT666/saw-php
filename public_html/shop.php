@@ -4,9 +4,35 @@ include('server/connection.php');
 
 //use the serach section
 if(isset($_POST['search'])){
+    
+    //determinar numero da pagina
+    if(isset($_GET['page_no']) && $_GET['page_no'] != ""){
+        //if user has already entered page then pager number is the one that they selected
+        $page_no = $_GET['page_no'];
+    }else{
+        //if user has not entered page number then page number is 1
+        $page_no = 1;
+    }
 
     $category = $_POST['category'];
     $price = $_POST['price'];
+
+
+
+      // products per page
+      $total_records_per_page = 8;
+      $offset = ($page_no-1) * $total_records_per_page;
+  
+      $previous_page = $page_no - 1;
+      $next_page = $page_no + 1;
+  
+      $adjacents = "2";
+  
+      $total_no_of_pages = ceil($total_records / $total_records_per_page);
+
+
+
+
 
     $stmt = $conn->prepare("SELECT * FROM products where product_category=? AND product_price<=?" );
 
@@ -20,11 +46,42 @@ if(isset($_POST['search'])){
 //return all products
 }else{
 
-    $stmt = $conn->prepare("SELECT * FROM products");
-
-    $stmt->execute();
+    if(isset($_GET['page_no']) && $_GET['page_no'] != ""){
+        //if user has already entered page then pager number is the one that they selected
+        $page_no = $_GET['page_no'];
+    }else{
+        //if user has not entered page number then page number is 1
+        $page_no = 1;
+    }
     
-    $products = $stmt->get_result();
+    //return number of products
+    $stmt1 = $conn->prepare("SELECT COUNT(*) AS total_records FROM products");
+
+
+    $stmt1->execute();
+
+    $stmt1->bind_result($total_records);
+
+    $stmt1->store_result();
+
+    $stmt1->fetch();
+
+    // products per page
+    $total_records_per_page = 8;
+    $offset = ($page_no-1) * $total_records_per_page;
+
+    $previous_page = $page_no - 1;
+    $next_page = $page_no + 1;
+
+    $adjacents = "2";
+
+    $total_no_of_pages = ceil($total_records / $total_records_per_page);
+
+    // receber todos produtos
+
+    $stmt2 = $conn->prepare("SELECT * FROM products LIMIT $offset, $total_records_per_page");
+    $stmt2->execute();
+    $products = $stmt2->get_result();
 
 }
 
@@ -117,26 +174,32 @@ if(isset($_POST['search'])){
 </div>
 
 <div class="form-group my-3 mx-3">
-    <input type="submit" name="serach" value="Search" class="btn btn-primary"/>
+    <input type="submit" name="search" value="Search" class="btn btn-primary"/>
 </div>
 </form>
 </section>
 
 
-<nav aria-label="Page navigation example">
-    <ul class="pagination mt-5">
-      <li class="page-item"><a class="page-link" href="#">Previous</a></li>
-      <li class="page-item"><a class="page-link" href="#">1</a></li>
-      <li class="page-item"><a class="page-link" href="#">2</a></li>
-      <li class="page-item"><a class="page-link" href="#">3</a></li>
-      <li class="page-item"><a class="page-link" href="#">next</a></li>
-      </li>
-      </ul>
-    </nav>
+<!-- Pagination -->
+<nav aria-label="Page navigation example" class="mx-auto">
+    <ul class="pagination mt-5 mx-auto">
+        <li class="page-item <?php if($page_no <= 1) { echo 'disabled'; } ?>">
+            <a class="page-link" href="<?php if($page_no <= 1) { echo '#'; } else { echo "?page_no=" . ($page_no - 1); } ?>">Previous</a>
+        </li>
 
-</div>
-</section>
+        <li class="page-item"><a class="page-link" href="?page_no=1">1</a></li>
+      
+        <li class="page-item"><a class="page-link" href="?page_no=2">2</a></li>
 
+        <?php if($page_no >= 3) { ?>
+            <li class="page-item"><a class="page-link" href="#">...</a></li>
+            <li class="page-item"><a class="page-link" href="?page_no=<?php echo $total_no_of_pages; ?>"><?php echo $total_no_of_pages; ?></a></li>
+        <?php } ?>
+
+        <li class="page-item <?php if($page_no >= $total_no_of_pages) { echo 'disabled'; } ?>"> 
+            <a class="page-link" href="<?php if($page_no >= $total_no_of_pages) { echo '#'; } else { echo "?page_no=" . ($page_no + 1); } ?>">Next</a>
+        </li>
+    </ul>
+</nav>
 
 <?php include('layouts/footer.php'); ?>
-        
