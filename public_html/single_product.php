@@ -282,6 +282,3 @@ if(isset($_GET['product_id'])) {
             }
         }
 </script>
-
-
-<?php include('layouts/footer.php'); ?>

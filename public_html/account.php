@@ -8,12 +8,16 @@ if(!isset($_SESSION['logged_in'])){
 
 
 if(isset($_GET['logout'])){
-    unset($_SESSION['logged_in']);
+    if(isset($_SESSION['logged_in'])){
+    
     unset($_SESSION['logged_in']);
     unset($_SESSION['user_email']);
     unset($_SESSION['user_name']);
     header('location: login.php');
     exit;
+    
+}
+
 }
 
 

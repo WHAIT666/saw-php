@@ -133,26 +133,26 @@ if(isset($_POST['search'])){
 
             <p>Category</p>
             <div class="form-check">
-                <input class="form-check-input" value="shoes" type="radio" name="category" id="category_one">
+                <input class="form-check-input" value="shoes" type="radio" name="category" id="category_one" <?php if(isset($category) && $category=='shoes'){echo 'checked'; } ?> >
                 <label class="form-check-label" for="flexRadioDefault1">
                     Shoes
                 </label>
             </div>
             
             <div class="form-check">
-                <input class="form-check-input" value="coats" type="radio" name="category" id="category_two" checked>
+                <input class="form-check-input" value="coats" type="radio" name="category" id="category_two"  <?php if(isset($category) && $category=='coats'){echo 'checked'; } ?> >
                 <label class="form-check-label" for="flexRadioDefault2">
                     Coats
         </label>
     </div>
             <div class="form-check">
-                        <input class="form-check-input" value="watches" type="radio" name="category" id="category_two" checked>
+                        <input class="form-check-input" value="watches" type="radio" name="category" id="category_two" <?php if(isset($category) && $category=='watches'){echo 'checked'; } ?> >
                         <label class="form-check-label" for="flexRadioDefault2">
                             Watches
                         </label>
                     </div>
                     <div class="form-check">
-                <input class="form-check-input" value="bags" type="radio" name="category" id="category_two" checked>
+                <input class="form-check-input" value="bags" type="radio" name="category" id="category_two" <?php if(isset($category) && $category=='bags'){echo 'checked'; } ?> >
                 <label class="form-check-label" for="flexRadioDefault2">
                     Bags
                 </label>
@@ -165,7 +165,7 @@ if(isset($_POST['search'])){
         <div class="col-lg-12 col-md-12 col-sm-12">
 
         <p>Price</p>
-        <input type="range" class="form-range w-50" name="price" value="100" min="1" max="1000" id="customRange2">
+        <input type="range" class="form-range w-50" name="price" value="<?php if(isset($price)) {echo $price;}else{ echo "100";} ?>" min="1" max="1000" id="customRange2">
         <div class="w-50">
             <span style="float: left;">1</span>
             <span style="float: right;">1000</span>
